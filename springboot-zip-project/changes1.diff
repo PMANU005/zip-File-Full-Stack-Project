@@ -1,0 +1,19 @@
+diff --git a/src/main/java/com/project/springbootzipproject/FileController.java b/src/main/java/com/project/springbootzipproject/FileController.java
+index 8568bcd..64c1c07 100644
+--- a/src/main/java/com/project/springbootzipproject/FileController.java
++++ b/src/main/java/com/project/springbootzipproject/FileController.java
+@@ -34,7 +34,7 @@ public class FileController {
+             InputStream  FiS =file.getInputStream();
+             ZipEntry zipEntry = new ZipEntry(file.getName());
+             zipOut.putNextEntry(zipEntry);
+-            byte[] bytes = new byte[4096];
++            byte[] bytes = new byte[file.getBytes().length];
+             int length;
+             while ((length = FiS.read(bytes)) >= 0) {
+                 zipOut.write(bytes, 0, length);
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+index 8b13789..e69de29 100644
+--- a/src/main/resources/application.properties
++++ b/src/main/resources/application.properties
+@@ -1 +0,0 @@
+-

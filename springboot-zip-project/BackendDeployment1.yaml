@@ -1,0 +1,23 @@
+apiVersion: apps/v1           # API version
+kind: Deployment              # Type of kubernetes resource
+metadata:
+  name: springboot-backend-new-zip    # Name of the kubernetes resource
+  labels:                     # Labels that will be applied to this resource
+    app: springboot-backend-new-zip
+spec:
+
+  selector:
+    matchLabels:              # The deployment applies to any pods mayching the specified labels
+      app: springboot-backend-new-zip
+  replicas: 1                 # No. of replicas/pods to run in this deployment
+  template:                   # Template for creating the pods in this deployment
+    metadata:
+      labels:                 # Labels that will be applied to each Pod in this deployment
+        app: springboot-backend-new-zip
+    spec:                     # Spec for the containers that will be run in the Pods
+      containers:
+        - name: springboot-backend-new-zip
+          image: springboot-zip-k8:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
