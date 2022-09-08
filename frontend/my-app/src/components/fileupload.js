@@ -76,9 +76,6 @@ class FileUpload extends Component {
     
       return (
         <div>
-            <h1>
-              GeeksforGeeks
-            </h1>
             <h3>
               File Upload using React!
             </h3>
